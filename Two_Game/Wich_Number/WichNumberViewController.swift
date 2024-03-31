@@ -1,31 +1,13 @@
-//
-//  ViewController.swift
-//  Two_Game
-//
-//  Created by Alexander on 01.04.2024.
-//
+
 
 import UIKit
 
 class WichNumberViewController: UIViewController, GameProtocol {
     var score: Int = 0
     
-    var isGameEnded: Bool
-    
     func restartGame() {
         round = 0
         score = 0
-    }
-    
-    
-    init(score: Int, isGameEnded: Bool) {
-        self.score = score
-        self.isGameEnded = isGameEnded
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     var number1 = Int()
@@ -50,8 +32,7 @@ class WichNumberViewController: UIViewController, GameProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        checkButton.addTarget(self, action: #selector(checkNumbers), for: .touchUpInside)
-        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Назад", style: .done, target: self, action: #selector(back))
         
         setupUI()
         
@@ -59,8 +40,8 @@ class WichNumberViewController: UIViewController, GameProtocol {
         
         randomNumbers()
        
-       
     }
+    
     
     func gameOver() {
         let alert = UIAlertController(title: "Игра Окончена",
@@ -118,6 +99,10 @@ class WichNumberViewController: UIViewController, GameProtocol {
         
     }
     
+    @objc func back() {
+       dismiss(animated: true)
+    }
+    
     func setupUI() {
         insertNumber.placeholder = "Insert Ansver"
         insertNumber.translatesAutoresizingMaskIntoConstraints = false
@@ -127,6 +112,7 @@ class WichNumberViewController: UIViewController, GameProtocol {
         checkButton.backgroundColor = .yellow
         checkButton.layer.cornerRadius = 5
         checkButton.layer.borderWidth = 2
+        checkButton.addTarget(self, action: #selector(checkNumbers), for: .touchUpInside)
         checkButton.translatesAutoresizingMaskIntoConstraints = false
         
     

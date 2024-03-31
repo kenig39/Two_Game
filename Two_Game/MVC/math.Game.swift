@@ -16,7 +16,7 @@ protocol GameProtocol {
     
     var number2: Int {get}
     
-    var isGameEnded: Bool {get}
+//    var isGameEnded: Bool {get}
     
     func gameOver()
     

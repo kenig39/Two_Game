@@ -67,16 +67,40 @@
 				FA0EEFD22BBB134600A7D568 /* AppDelegate.swift */,
 				FA0EEFD42BBB134600A7D568 /* SceneDelegate.swift */,
 				FA0EEFE62BBB138F00A7D568 /* StartViewController.swift */,
-				FA0EEFD62BBB134600A7D568 /* WichNumberViewController.swift */,
-				FA0EEFEA2BBB144400A7D568 /* Extention.swift */,
-				FA0EEFEC2BBB14AC00A7D568 /* math.Game.swift */,
-				FA0EEFE82BBB141700A7D568 /* WichColorViewController.swift */,
+				FA0EEFEE2BBB14AC00A7D568 /* Wich_Color */,
+				FA0EEFEF2BBB14AC00A7D568 /* Wich_Number */,
+				FA0EEFF02BBB14AC00A7D568 /* MVC */,
 				FA0EEFD82BBB134600A7D568 /* Main.storyboard */,
 				FA0EEFDB2BBB134800A7D568 /* Assets.xcassets */,
 				FA0EEFDD2BBB134800A7D568 /* LaunchScreen.storyboard */,
 				FA0EEFE02BBB134800A7D568 /* Info.plist */,
 			);
 			path = Two_Game;
+			sourceTree = "<group>";
+		};
+		FA0EEFEE2BBB14AC00A7D568 /* Wich_Color */ = {
+			isa = PBXGroup;
+			children = (
+				FA0EEFE82BBB141700A7D568 /* WichColorViewController.swift */,
+			);
+			path = Wich_Color;
+			sourceTree = "<group>";
+		};
+		FA0EEFEF2BBB14AC00A7D568 /* Wich_Number */ = {
+			isa = PBXGroup;
+			children = (
+				FA0EEFD62BBB134600A7D568 /* WichNumberViewController.swift */,
+			);
+			path = Wich_Number;
+			sourceTree = "<group>";
+		};
+		FA0EEFF02BBB14AC00A7D568 /* MVC */ = {
+			isa = PBXGroup;
+			children = (
+				FA0EEFEC2BBB14AC00A7D568 /* math.Game.swift */,
+				FA0EEFEA2BBB144400A7D568 /* Extention.swift */,
+			);
+			path = MVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
