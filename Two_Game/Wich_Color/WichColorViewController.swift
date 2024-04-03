@@ -17,8 +17,10 @@ class WichColorViewController: UIViewController {
     let chose3Button = UIButton()
     let chose4Button = UIButton()
     
-    
-    
+
+    var randomColor = CGFloat.random(in: 0...250)/255.0
+    let randomCGFloat = UIColor(red: CGFloat.random(in: 0...250)/255.0, green: CGFloat.random(in: 0...250.0)/255.0, blue: CGFloat.random(in: 0...250.0)/255.0, alpha:CGFloat.random(in: 0...1))
+   
     
 
     override func loadView() {
@@ -28,9 +30,13 @@ class WichColorViewController: UIViewController {
         
         setupUI()
         
+       
+        
         setting()
         
     }
+    
+    
     
     
     func setupUI() {
@@ -41,7 +47,7 @@ class WichColorViewController: UIViewController {
         
         chose1Button.setTitle("NextVC", for: .normal)
         chose1Button.setTitleColor(.black, for: .normal)
-        chose1Button.backgroundColor = .cyan
+        chose1Button.backgroundColor = UIColor(red: CGFloat.random(in: 0...250.0)/255.0, green: CGFloat.random(in: 0...250.0)/255.0, blue: CGFloat.random(in: 0...250.0)/255.0, alpha:CGFloat.random(in: 0...1))
         chose1Button.layer.cornerRadius = 5
         chose1Button.layer.borderWidth = 2
        // chose1Button.addTarget(self, action: #selector(back), for: .touchUpInside)
@@ -50,7 +56,7 @@ class WichColorViewController: UIViewController {
     
         chose2Button.setTitle("NextVC", for: .normal)
         chose2Button.setTitleColor(.black, for: .normal)
-        chose2Button.backgroundColor = .cyan
+        chose2Button.backgroundColor = UIColor(red: CGFloat.random(in: 0...250.0)/255.0, green: CGFloat.random(in: 0...250.0)/255.0, blue: CGFloat.random(in: 0...250.0)/255.0, alpha:CGFloat.random(in: 0...1))
         chose2Button.layer.cornerRadius = 5
         chose2Button.layer.borderWidth = 2
        // chose2Button.addTarget(self, action: #selector(back), for: .touchUpInside)
@@ -58,7 +64,7 @@ class WichColorViewController: UIViewController {
         
         chose3Button.setTitle("NextVC", for: .normal)
         chose3Button.setTitleColor(.black, for: .normal)
-        chose3Button.backgroundColor = .cyan
+        chose3Button.backgroundColor = UIColor(red: CGFloat.random(in: 0...250.0)/255.0, green: CGFloat.random(in: 0...250.0)/255.0, blue: CGFloat.random(in: 0...250.0)/255.0, alpha:CGFloat.random(in: 0...1))
         chose3Button.layer.cornerRadius = 5
         chose3Button.layer.borderWidth = 2
        // chose3Button.addTarget(self, action: #selector(back), for: .touchUpInside)
@@ -66,7 +72,7 @@ class WichColorViewController: UIViewController {
         
         chose4Button.setTitle("NextVC", for: .normal)
         chose4Button.setTitleColor(.black, for: .normal)
-        chose4Button.backgroundColor = UIColor.blue
+        chose4Button.backgroundColor = UIColor(red: CGFloat.random(in: 0...250.0)/255.0, green: CGFloat.random(in: 0...250.0)/255.0, blue: CGFloat.random(in: 0...250.0)/255.0, alpha:CGFloat.random(in: 0...1))
         chose4Button.layer.cornerRadius = 5
         chose4Button.layer.borderWidth = 2
       //  chose4Button.addTarget(self, action: #selector(back), for: .touchUpInside)
