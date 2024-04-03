@@ -11,11 +11,13 @@ class WichColorViewController: UIViewController {
     
     
     
-    
+    let showColorlable = UILabel()
     let chose1Button = UIButton()
     let chose2Button = UIButton()
     let chose3Button = UIButton()
     let chose4Button = UIButton()
+    
+    
     
     
 
@@ -32,6 +34,11 @@ class WichColorViewController: UIViewController {
     
     
     func setupUI() {
+        showColorlable.text = "Цвет"
+        showColorlable.font = UIFont(name: "Text", size: 20)
+        showColorlable.textColor = UIColor.black
+        showColorlable.translatesAutoresizingMaskIntoConstraints = false
+        
         chose1Button.setTitle("NextVC", for: .normal)
         chose1Button.setTitleColor(.black, for: .normal)
         chose1Button.backgroundColor = .cyan
@@ -59,24 +66,26 @@ class WichColorViewController: UIViewController {
         
         chose4Button.setTitle("NextVC", for: .normal)
         chose4Button.setTitleColor(.black, for: .normal)
-        chose4Button.backgroundColor = .cyan
+        chose4Button.backgroundColor = UIColor.blue
         chose4Button.layer.cornerRadius = 5
         chose4Button.layer.borderWidth = 2
       //  chose4Button.addTarget(self, action: #selector(back), for: .touchUpInside)
         chose4Button.translatesAutoresizingMaskIntoConstraints = false
         
-        view.addSubviews([chose1Button, chose2Button, chose3Button, chose4Button])
+        view.addSubviews([showColorlable,chose1Button, chose2Button, chose3Button, chose4Button])
         
     }
-    
-   
     
     @objc func back() {
         dismiss(animated: true)
     }
     
+    
     func setting() {
-        chose1Button.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100).isActive = true
+        showColorlable.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100).isActive = true
+        showColorlable.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        chose1Button.topAnchor.constraint(equalTo: showColorlable.bottomAnchor, constant: 20).isActive = true
         chose1Button.widthAnchor.constraint(equalToConstant: 70).isActive = true
         chose1Button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         chose1Button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
