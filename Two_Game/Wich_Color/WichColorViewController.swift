@@ -19,9 +19,10 @@ class WichColorViewController: UIViewController {
     let chose2Button = UIButton()
     let chose3Button = UIButton()
     let chose4Button = UIButton()
+    let showAnsverLabel = UILabel()
     
-
-
+   
+    var ifIsTrue = true
 
     override func loadView() {
         super.loadView()
@@ -32,8 +33,6 @@ class WichColorViewController: UIViewController {
         
         setting()
         
-       
-        
     }
     
     func reloadColor() -> UIColor {
@@ -43,7 +42,38 @@ class WichColorViewController: UIViewController {
         return randomCGFloat
     }
     
-    public
+    
+     func rgbtoHex(color: UIColor) -> String {
+        var hexColor = String()
+        
+        let rgb = color
+        
+       hexColor = String(format: "#%02x", rgb)
+         print(hexColor)
+        return hexColor
+         
+    }
+    
+    @objc func back() {
+        dismiss(animated: true)
+    }
+
+//    func checkBackground(buttons: [UIButton]) -> String {
+//
+//        var check = String()
+//        var color = UIColor()
+//        for i in buttons {
+//            if i.tag ==
+//
+//        }
+//
+//        return check
+//    }
+
+    @objc func checkColor() {
+       
+    }
+    
     
     
     func setupUI() {
@@ -57,7 +87,7 @@ class WichColorViewController: UIViewController {
         chose1Button.backgroundColor = reloadColor()
         chose1Button.layer.cornerRadius = 5
         chose1Button.layer.borderWidth = 2
-       // chose1Button.addTarget(self, action: #selector(rgbtoHex(color: reloadColor())), for: .touchUpInside)
+        chose1Button.addTarget(self, action: #selector(checkColor), for: .touchUpInside)
         chose1Button.translatesAutoresizingMaskIntoConstraints = false
         chose1Button.reloadInputViews()
         
@@ -67,7 +97,7 @@ class WichColorViewController: UIViewController {
         chose2Button.backgroundColor = reloadColor()
         chose2Button.layer.cornerRadius = 5
         chose2Button.layer.borderWidth = 2
-       // chose2Button.addTarget(self, action: #selector(back), for: .touchUpInside)
+        chose2Button.addTarget(self, action: #selector(checkColor), for: .touchUpInside)
         chose2Button.translatesAutoresizingMaskIntoConstraints = false
         
         chose3Button.setTitle("Вариант 3", for: .normal)
@@ -75,7 +105,7 @@ class WichColorViewController: UIViewController {
         chose3Button.backgroundColor = reloadColor()
         chose3Button.layer.cornerRadius = 5
         chose3Button.layer.borderWidth = 2
-       // chose3Button.addTarget(self, action: #selector(back), for: .touchUpInside)
+        chose3Button.addTarget(self, action: #selector(checkColor), for: .touchUpInside)
         chose3Button.translatesAutoresizingMaskIntoConstraints = false
         
         chose4Button.setTitle("Вариант 4", for: .normal)
@@ -83,31 +113,18 @@ class WichColorViewController: UIViewController {
         chose4Button.backgroundColor = reloadColor()
         chose4Button.layer.cornerRadius = 5
         chose4Button.layer.borderWidth = 2
-      //  chose4Button.addTarget(self, action: #selector(back), for: .touchUpInside)
+       chose4Button.addTarget(self, action: #selector(checkColor), for: .touchUpInside)
         chose4Button.translatesAutoresizingMaskIntoConstraints = false
+        
+        showAnsverLabel.text = ""
+        showAnsverLabel.textColor = UIColor.black
+        showAnsverLabel.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubviews([showColorlable,chose1Button, chose2Button, chose3Button, chose4Button])
         
     }
     
-    
-     func rgbtoHex(color: UIColor) -> String {
-        var hexColor = String()
-        
-        let rgb = color
-        
-       hexColor = String(format: "#%02x", rgb)
-    
-         print(hexColor)
-        return hexColor
-    
-    }
-    
-    @objc func back() {
-        dismiss(animated: true)
-    }
-    
-    
+   
     func setting() {
         showColorlable.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100).isActive = true
         showColorlable.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -131,6 +148,9 @@ class WichColorViewController: UIViewController {
         chose4Button.widthAnchor.constraint(equalToConstant: 100).isActive = true
         chose4Button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         chose4Button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        showAnsverLabel.topAnchor.constraint(equalTo: chose4Button.bottomAnchor, constant: 50).isActive = true
+        showAnsverLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
     }
 }
