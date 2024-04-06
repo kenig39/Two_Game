@@ -7,6 +7,9 @@
 
 import UIKit
 
+
+
+
 class WichColorViewController: UIViewController {
     
     
@@ -18,10 +21,7 @@ class WichColorViewController: UIViewController {
     let chose4Button = UIButton()
     
 
-    var randomColor = CGFloat.random(in: 0...250)/255.0
-    let randomCGFloat = UIColor(red: CGFloat.random(in: 0...250)/255.0, green: CGFloat.random(in: 0...250.0)/255.0, blue: CGFloat.random(in: 0...250.0)/255.0, alpha:CGFloat.random(in: 0...1))
-   
-    
+
 
     override func loadView() {
         super.loadView()
@@ -30,49 +30,57 @@ class WichColorViewController: UIViewController {
         
         setupUI()
         
-       
-        
         setting()
+        
+       
         
     }
     
+    func reloadColor() -> UIColor {
+        
+        let randomCGFloat = UIColor(red: CGFloat.random(in: 0...250)/255.0, green: CGFloat.random(in: 0...250.0)/255.0, blue: CGFloat.random(in: 0...250.0)/255.0, alpha:CGFloat.random(in: 0...1))
+        
+        return randomCGFloat
+    }
     
+    public
     
     
     func setupUI() {
-        showColorlable.text = "Цвет"
+        showColorlable.text = rgbtoHex(color: reloadColor())
         showColorlable.font = UIFont(name: "Text", size: 20)
         showColorlable.textColor = UIColor.black
         showColorlable.translatesAutoresizingMaskIntoConstraints = false
         
-        chose1Button.setTitle("NextVC", for: .normal)
+        chose1Button.setTitle("Вариан 1", for: .normal)
         chose1Button.setTitleColor(.black, for: .normal)
-        chose1Button.backgroundColor = UIColor(red: CGFloat.random(in: 0...250.0)/255.0, green: CGFloat.random(in: 0...250.0)/255.0, blue: CGFloat.random(in: 0...250.0)/255.0, alpha:CGFloat.random(in: 0...1))
+        chose1Button.backgroundColor = reloadColor()
         chose1Button.layer.cornerRadius = 5
         chose1Button.layer.borderWidth = 2
-       // chose1Button.addTarget(self, action: #selector(back), for: .touchUpInside)
+       // chose1Button.addTarget(self, action: #selector(rgbtoHex(color: reloadColor())), for: .touchUpInside)
         chose1Button.translatesAutoresizingMaskIntoConstraints = false
+        chose1Button.reloadInputViews()
         
     
-        chose2Button.setTitle("NextVC", for: .normal)
+        chose2Button.setTitle("Вариант 2", for: .normal)
         chose2Button.setTitleColor(.black, for: .normal)
-        chose2Button.backgroundColor = UIColor(red: CGFloat.random(in: 0...250.0)/255.0, green: CGFloat.random(in: 0...250.0)/255.0, blue: CGFloat.random(in: 0...250.0)/255.0, alpha:CGFloat.random(in: 0...1))
+        chose2Button.backgroundColor = reloadColor()
         chose2Button.layer.cornerRadius = 5
         chose2Button.layer.borderWidth = 2
        // chose2Button.addTarget(self, action: #selector(back), for: .touchUpInside)
         chose2Button.translatesAutoresizingMaskIntoConstraints = false
         
-        chose3Button.setTitle("NextVC", for: .normal)
+        chose3Button.setTitle("Вариант 3", for: .normal)
         chose3Button.setTitleColor(.black, for: .normal)
-        chose3Button.backgroundColor = UIColor(red: CGFloat.random(in: 0...250.0)/255.0, green: CGFloat.random(in: 0...250.0)/255.0, blue: CGFloat.random(in: 0...250.0)/255.0, alpha:CGFloat.random(in: 0...1))
+        chose3Button.backgroundColor = reloadColor()
         chose3Button.layer.cornerRadius = 5
         chose3Button.layer.borderWidth = 2
        // chose3Button.addTarget(self, action: #selector(back), for: .touchUpInside)
         chose3Button.translatesAutoresizingMaskIntoConstraints = false
         
-        chose4Button.setTitle("NextVC", for: .normal)
+        chose4Button.setTitle("Вариант 4", for: .normal)
         chose4Button.setTitleColor(.black, for: .normal)
-        chose4Button.backgroundColor = UIColor(red: CGFloat.random(in: 0...250.0)/255.0, green: CGFloat.random(in: 0...250.0)/255.0, blue: CGFloat.random(in: 0...250.0)/255.0, alpha:CGFloat.random(in: 0...1))
+        chose4Button.backgroundColor = reloadColor()
         chose4Button.layer.cornerRadius = 5
         chose4Button.layer.borderWidth = 2
       //  chose4Button.addTarget(self, action: #selector(back), for: .touchUpInside)
@@ -80,6 +88,19 @@ class WichColorViewController: UIViewController {
         
         view.addSubviews([showColorlable,chose1Button, chose2Button, chose3Button, chose4Button])
         
+    }
+    
+    
+     func rgbtoHex(color: UIColor) -> String {
+        var hexColor = String()
+        
+        let rgb = color
+        
+       hexColor = String(format: "#%02x", rgb)
+    
+         print(hexColor)
+        return hexColor
+    
     }
     
     @objc func back() {
@@ -92,22 +113,22 @@ class WichColorViewController: UIViewController {
         showColorlable.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         chose1Button.topAnchor.constraint(equalTo: showColorlable.bottomAnchor, constant: 20).isActive = true
-        chose1Button.widthAnchor.constraint(equalToConstant: 70).isActive = true
+        chose1Button.widthAnchor.constraint(equalToConstant: 100).isActive = true
         chose1Button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         chose1Button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         chose2Button.topAnchor.constraint(equalTo: chose1Button.bottomAnchor, constant: 20).isActive = true
-        chose2Button.widthAnchor.constraint(equalToConstant: 70).isActive = true
+        chose2Button.widthAnchor.constraint(equalToConstant: 100).isActive = true
         chose2Button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         chose2Button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         chose3Button.topAnchor.constraint(equalTo: chose2Button.bottomAnchor, constant: 20).isActive = true
-        chose3Button.widthAnchor.constraint(equalToConstant: 70).isActive = true
+        chose3Button.widthAnchor.constraint(equalToConstant: 100).isActive = true
         chose3Button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         chose3Button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         chose4Button.topAnchor.constraint(equalTo: chose3Button.bottomAnchor, constant: 20).isActive = true
-        chose4Button.widthAnchor.constraint(equalToConstant: 70).isActive = true
+        chose4Button.widthAnchor.constraint(equalToConstant: 100).isActive = true
         chose4Button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         chose4Button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
